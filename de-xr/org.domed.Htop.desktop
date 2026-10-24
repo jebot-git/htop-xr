@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=htop
+GenericName=Process Viewer
+Comment=System performance and processes
+Exec=htop --gui
+Icon=htop
+Terminal=false
+Categories=System;Monitor;
+StartupWMClass=org.domed.Htop
+Keywords=process;CPU;memory;performance;

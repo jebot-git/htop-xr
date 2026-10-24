@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Keep console launches and all upstream command-line options on upstream htop.
+set -euo pipefail
+prefix="${HTOP_DE_XR_PREFIX:-/usr/local}"
+if [[ ${1-} == --gui ]]; then
+    shift
+    exec "$prefix/libexec/htop/htop-fltk" "$@"
+elif [[ ${1-} == --tui ]]; then
+    shift
+elif [[ $# == 0 && ! -t 0 && ! -t 1 && ( -n ${WAYLAND_DISPLAY-} || -n ${DISPLAY-} ) ]]; then
+    exec "$prefix/libexec/htop/htop-fltk"
+fi
+exec "$prefix/libexec/htop/htop-tui" "$@"

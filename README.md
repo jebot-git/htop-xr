@@ -10,6 +10,12 @@
 
 ![Screenshot of htop](docs/images/screenshot.png?raw=true)
 
+## de-xr FLTK frontend
+
+This fork adds an FLTK/OpenGL frontend and labelled CPU/RAM/SWAP bars on DomeD's
+XR floor, alongside cmuxr. Terminal launches retain upstream htop's TUI.
+See [de-xr build, launch and installation instructions](de-xr/README.md).
+
 ## Introduction
 
 `htop` is a cross-platform interactive process viewer.

@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/htop-dev/htop",
+  "revision": "394b4a3fc0df593a00be452a1862057b88b4eaf7",
+  "description": "Latest upstream main as of 2026-10-24; upstream TUI sources unmodified.",
+  "shared_ui": {
+    "source": "https://github.com/jebot-git/cmuxr",
+    "revision": "d2377eb344627845c00c7bbb01ce9c544f347012",
+    "files": {
+      "appearance.h": "25525e1d43c3036c5fc9ddd99e3c9621e8f9439147412b9bcfc1f2152201f591",
+      "bdf_font.hpp": "5738a6826aea224c96c0578d7ba1e34e43f63e86ca6a675c710ced8438bfb154",
+      "gpu-window.h": "a80151ae39de8796afb85ed96cd229ace74b4d570d21ed303ceb63255937deb2",
+      "suite-icons.h": "af9f220aa0f14c9a0d59694f96a8e626526395a29758fa15271fad25770d122a",
+      "desktop-menu.h": "91878c6ef2ca8f5791d3c73cc24ae233cf795e0460c8c75d5d0c1cf9ce1bf8e2",
+      "desktop-menu.cpp": "b9c7dd91a3e82f6bee54ca7db6f742ed431b871a1f56cf1f59d2502833d5f1a1",
+      "desktop-menu.cmake": "2520c100f2828747a4b8dfdee2f3faa742faf43c02fa73c6adba8d9ad6ce8ada",
+      "appmenu.xml": "7d0251ee00d3d4bc7ee41e3cd1161beaf68a0c18c4f56f48ff1907a475846022"
+    }
+  }
+}

@@ -54,3 +54,6 @@ callgrind.out.*
 
 # Language Servers
 /.cache/clangd/
+
+# de-xr out-of-tree release and QA artifacts
+/build/
