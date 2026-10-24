@@ -52,7 +52,12 @@ try:
         check(raw[:4]==b'HTPF' and state['enabled'] and [m['label'] for m in state['meters']]==['CPU','RAM','SWAP'],'Matched floor sample uses real CPU, RAM and swap meters')
         check((runtime/'htop-floor.json').stat().st_mode&0o777==0o600,'Floor publication is private')
         image=Image.frombytes('RGBA',(1024,256),raw[12:]);image.save(out/'floor.png')
-        check(len(image.getcolors(1024*256) or [])>=6,'Floor canvas contains text and coloured bars')
+        check(len(image.getcolors(1024*256) or [])>=5,'Floor canvas contains text and coloured bars')
+        check(image.getpixel((0,0))==(0,0,0,0) and image.getpixel((30,60))[3]==0,
+              'XR floor has no panel background and meter grout is transparent')
+        for i,meter in enumerate(state['meters']):
+            if meter['value']<1:
+                check(image.getpixel((1007,60+i*80))[3]==0,'Unused '+meter['label']+' track is transparent')
         second=gui('desktop','desktop-second',True);check(second.wait(timeout=10)==0,'Second GUI coexists without taking floor ownership')
         check(json.loads((runtime/'htop-floor.json').read_text())['pid']==first.pid,'Closing secondary GUI preserves primary publication')
         first.terminate();first.wait(timeout=5)

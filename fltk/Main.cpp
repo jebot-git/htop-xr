@@ -34,8 +34,10 @@ static void meters(const Json &sample, int x, int y, int width, int height, bool
       auto text = meter["label"].get<std::string>() + "  " + meter["text"].get<std::string>();
       fl_draw(text.c_str(), x + 8, top + 3, width - 16, row / 2, FL_ALIGN_LEFT | FL_ALIGN_INSIDE);
       int by = top + row / 2 + 2, bh = std::max(6, row / 2 - 8);
-      fl_color(FL_BACKGROUND2_COLOR);
-      fl_rectf(x + 8, by, width - 16, bh);
+      if (!floor) {
+         fl_color(FL_BACKGROUND2_COLOR);
+         fl_rectf(x + 8, by, width - 16, bh);
+      }
       int filled = int((width - 16) * meter["value"].get<double>());
       fl_color(colours[i]);
       // Tiled cells echo cmuxr's floor spectrum, with real measured lengths.
@@ -134,9 +136,9 @@ class Monitor : public dx::GpuWindow {
       glLoadIdentity();
       glOrtho(0, FloorW, FloorH, 0, -1, 1);
       glMatrixMode(GL_MODELVIEW);
-      unsigned char r, g, b;
-      Fl::get_color(FL_BACKGROUND_COLOR, r, g, b);
-      glClearColor(r / 255.f, g / 255.f, b / 255.f, .94f);
+      // Project only the labels and meter tiles onto the real floor. Panel
+      // backgrounds and empty bar tracks belong to the desktop window.
+      glClearColor(0, 0, 0, 0);
       glClear(GL_COLOR_BUFFER_BIT);
       meters(sample, 8, 8, FloorW - 16, FloorH - 16, true);
       draw_end();

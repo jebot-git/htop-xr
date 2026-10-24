@@ -21,3 +21,9 @@ Release build against upstream `394b4a3f` and installed FLTK 1.4.5.
 
 Reproducible tests and build commands are in README.md. Local logs, screenshots
 and the OpenXR report are retained under build/ and are excluded from git.
+
+## Undecorated XR projection
+
+The follow-up Wayland run passed 15 checks, including transparent canvas corners,
+transparent tile grout and transparent unused CPU/RAM/SWAP tracks. The composited
+preview was visually checked; desktop meter styling is unchanged.

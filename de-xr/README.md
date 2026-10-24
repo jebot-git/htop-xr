@@ -30,8 +30,9 @@ are replaced for display. Long commands are clipped before texture allocation.
 ## XR performance floor
 
 On DomeD's XR Wayland socket the process list remains a window; CPU/RAM/SWAP bars
-and their labels are projected onto the STAGE floor. On desktop they remain in
-the window. The **XR floor readouts** checkbox can disable the projection.
+and their labels are projected directly onto the STAGE floor, with transparent
+space between the tiles and no panel background or empty bar tracks. On desktop
+they remain in the window. The **XR floor readouts** checkbox can disable the projection.
 
 DomeD renders a 4:1 strip inside the forward edge of the play rectangle, at most
 2.8 m wide. It shares cmuxr's STAGE coordinates and runtime or configured
